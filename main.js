@@ -37,6 +37,6 @@ router.get('/logout', function (request, response) {
 app.use(webconfig.root, router)
 
 //Start web sever
-app.listen(1234, function () {
+app.listen(1269, function () {
     console.log('Sever started OK')
 })

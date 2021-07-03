@@ -2,7 +2,9 @@
 <html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AB - Architecture</title>
+<title>
+    <%= generalInfo.companyNameShort %> <%= generalInfo.companyNameLong %>
+</title>
 <link rel="stylesheet" href="w3.css">
 <link rel="stylesheet" href="showroom.css">
 
@@ -15,9 +17,9 @@
             <h3 class="w3-border-bottom w3-border-light-gray w3-padding-16">Login</h3>
 
             <% if (errorMessage) { %>
-                <div class="w3-text-red">
-                    <p><%= errorMessage %></p>
-                </div>
+            <div class="w3-text-red">
+                <p><%= errorMessage %></p>
+            </div>
             <% } %>
             <form action="" method="POST">
                 <p>

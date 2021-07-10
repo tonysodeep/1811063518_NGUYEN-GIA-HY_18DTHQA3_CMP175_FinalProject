@@ -2,7 +2,7 @@ exports.create = function (datasource) {
     return {
         authenticate: function (username, password, callback) {
             datasource.loadAccount(function (account) {
-                var success = account.username == username && account.password == password
+                var success = account.username.trim() == username && account.password.trim() == password
                 callback(success)
             })
         },
@@ -19,6 +19,20 @@ exports.create = function (datasource) {
             datasource.saveGeneralInfo(info, featureImageTmpPath, function (err) {
                 if (err) {
                     callback('Could not save general info')
+                    return
+                }
+                callback(false)
+            })
+        },
+        getAbout: datasource.loadAbout,
+        editAbout: function (text, callback) {
+            if (text.trim() == '') {
+                callback('About text cannot be empty')
+                return
+            }
+            datasource.saveAbout(text, function (err) {
+                if (err) {
+                    callback('Could not save about text')
                     return
                 }
                 callback(false)

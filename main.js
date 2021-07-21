@@ -50,19 +50,31 @@ router.post('/edit-general-info', upload.single('featureImage'), function (reque
 })
 
 router.get('/edit-about', function (request, response) {
-    controller('edit-about').get(request,response,webconfig,model)
+    controller('edit-about').get(request, response, webconfig, model)
 })
 
 router.post('/edit-about', urlencodedParser, function (request, response) {
-    controller('edit-about').post(request,response,webconfig,model)
+    controller('edit-about').post(request, response, webconfig, model)
 })
 
 router.get('/add-product', function (request, response) {
-    controller('add-product').get(request,response,webconfig,model)
+    controller('add-product').get(request, response, webconfig, model)
 })
 
 router.post('/add-product', upload.single('productImage'), function (request, response) {
-    controller('add-product').post(request,response,webconfig,model)
+    controller('add-product').post(request, response, webconfig, model)
+})
+
+router.get('/edit-product', function (request, response) {
+    controller('edit-product').get(request, response, webconfig, model)
+})
+
+router.post('/edit-product', upload.single('productImage'), function (request, response) {
+    controller('edit-product').post(request, response, webconfig, model)
+})
+
+router.get('/delete-product', function (request, response) {
+    controller('delete-product').get(request,response,webconfig,model)
 })
 
 app.use(webconfig.root, router)
